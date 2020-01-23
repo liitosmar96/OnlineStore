@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body th:fragment="regilla_productos">
+	<div class="col-lg-4 col-md-6 mb-4" th:each="producto : ${productos}">
+		<div class="card h-100">
+			<a href="#"><img class="card-img-top"
+				src="http://placehold.it/700x400" th:src="${producto.imagen}" alt=""></a>
+			<div class="card-body">
+				<h4 class="card-title">
+					<a href="#" th:text="${producto.nombre}">Item One</a>
+				</h4>
+				<h5 th:text="${#numbers.formatCurrency(producto.pvp)}">$24.99</h5>
+				<p class="card-text"
+					th:text="${#strings.abbreviate(producto.descripcion,65)}">Lorem
+					ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam
+					aspernatur!</p>
+			</div>
+			<div class="card-footer">
+				<!-- small -->
+				<small th:each="i:${#numbers.sequence(1,5)}" class="glyphicon"
+					th:text="${i <= producto.getPuntuacionMedia()} ? '&#9733;': '&#9734;'"></small>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
