@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body th:fragment="columna_categorias">
+	<h1 class="my-4">Shop Name</h1>
+	<div class="list-group">
+		<a href="#" class="list-group-item"
+			th:each="categoria : ${categorias}" th:text="${categoria.nombre}">Category</a>
+	</div>
+</body>
+</html>
